@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1165.robot.commands;
 
+import org.usfirst.frc.team1165.robot.Robot;
 import org.usfirst.frc.team1165.robot.subsystems.Accelerometer;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
@@ -12,10 +13,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ReportAcceleration extends Command {
 
 	BuiltInAccelerometer bob = new BuiltInAccelerometer();
-	
+	private static double x;
+	private static double y;
+	private static double z;
     public ReportAcceleration() {
         // Use requires() here to declare subsystem dependencies
-         requires(new Accelerometer());
+         requires( Robot.accelerometer);
     }
 
     // Called just before this Command runs the first time
@@ -24,10 +27,13 @@ public class ReportAcceleration extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	x=bob.getX();
+    	y=bob.getY();
+    	z=bob.getZ();
     //The Z axis should be pointed straight down?
-    	SmartDashboard.putDouble("accelX", bob.getX());
-    	SmartDashboard.putDouble("accelY", bob.getY());
-    	SmartDashboard.putDouble("accelZ", bob.getZ());
+    	SmartDashboard.putDouble("accelX", x);
+    	SmartDashboard.putDouble("accelY", y);
+    	SmartDashboard.putDouble("accelZ", z);
     	
     }
 
