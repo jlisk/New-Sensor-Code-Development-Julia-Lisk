@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team1165.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1165.robot.subsystems.Accelerometer;
 import org.usfirst.frc.team1165.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -18,6 +19,7 @@ import org.usfirst.frc.team1165.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final Accelerometer accelerometer = new Accelerometer();
 	public static OI oi;
 
     Command autonomousCommand;
